@@ -13,7 +13,11 @@ st.title("📊 Customer Feedback Analyzer")
 uploaded_file = st.file_uploader("📁 Upload a CSV file with customer reviews", type="csv")
 
 import nltk
-nltk.download('vader_lexicon')
+try:
+    nltk.data.find('sentiment/vader_lexicon')
+except LookupError:
+    nltk.download('vader_lexicon')
+
 
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
