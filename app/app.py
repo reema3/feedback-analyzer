@@ -12,8 +12,8 @@ st.title("📊 Customer Feedback Analyzer")
 
 uploaded_file = st.file_uploader("📁 Upload a CSV file with customer reviews", type="csv")
 
-# import nltk
-# nltk.download('vader_lexicon')
+import nltk
+nltk.download('vader_lexicon')
 
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
